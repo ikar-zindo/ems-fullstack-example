@@ -1,4 +1,4 @@
-# Employee Menegment System
+# Employee Management System
 
 ### Example web application using Java Spring Web + REACT.js
 

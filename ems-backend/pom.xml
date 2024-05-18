@@ -12,7 +12,7 @@
 	<artifactId>ems-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ems-backend</name>
-	<description>Poject for Spring Boot Employee Menegment System</description>
+	<description>Project for Spring Boot Employee Management System</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

@@ -33,31 +33,37 @@ const EmployeeComponent = () => {
 
    }, [id])
 
-   function saveOrUpdateEmployee(e){
+   // CREATE - Create New Employee
+   function saveEmployee(e){
       e.preventDefault();
-
+      
       if(validateForm()){
-
-         
          const employee = {firstName, lastName, email};
          console.log(employee);
-
-         if(id){
-            updateEmployee(id, employee).then((response) => {
-               console.log(response.data);
-               navigator('/employees');
-            }).catch(error => {
-               console.error(error);
-            })
-            
-         } else {
-            createEmployee(employee).then((response) => {
-               console.log(response.data);
-               navigator('/employees')
-            }).catch(error => {
-               console.error(error);
-            })
-         }
+   
+         createEmployee(employee).then((response) => {
+            console.log(response.data);
+            navigator('/employees');
+         }).catch(error => {
+            console.error(error);
+         });
+      }
+   }
+   
+   // UPDATE - Update Employee Info
+   function updateEmployeeInfo(e){
+      e.preventDefault();
+      
+      if(validateForm()){
+         const employee = {firstName, lastName, email};
+         console.log(employee);
+   
+         updateEmployee(id, employee).then((response) => {
+            console.log(response.data);
+            navigator('/employees');
+         }).catch(error => {
+            console.error(error);
+         });
       }
    }
 
@@ -111,7 +117,7 @@ const EmployeeComponent = () => {
             }
 
             <div className='card-body'>
-               <form>
+               <form onSubmit={id ? updateEmployeeInfo : saveEmployee}>
                   <div className='form-group mb-2'>
                      <label className='form-lable'>First Name:</label>
                      <input 
@@ -154,7 +160,7 @@ const EmployeeComponent = () => {
                      { errors.email && <div className='invalid-feedback'> { errors.email} </div> }
                   </div>
 
-                  <button className='btn btn-success' onClick={saveOrUpdateEmployee} >Submit</button>
+                  <button className='btn btn-success'>Submit</button>
                </form>
 
             </div>
