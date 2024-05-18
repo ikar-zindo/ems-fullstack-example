@@ -17,3 +17,23 @@
 - JavaScript
 - NPM
 - Axios
+
+### Running an application in Docker
+
+
+```
+# Collect images for all services
+docker-compose -p ems-fullstack build
+
+# Start all services
+docker-compose -p ems-fullstack up -d
+
+# Check the status of running containers
+docker-compose -p ems-fullstack ps
+
+# View logs (optional)
+docker-compose -p ems-fullstack logs -f
+
+# Stop all services (if necessary)
+docker-compose -p ems-fullstack down
+```
