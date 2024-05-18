@@ -12,7 +12,7 @@ services:
     ports:
       - "3307:3306"
 
-  ems-backend:
+  backend:
     build:
       context: ./ems-backend/
     depends_on:
@@ -25,7 +25,7 @@ services:
     ports:
       - "8080:8080"
 
-  ems-frontend:
+  frontend:
     build:
       context: ./ems-frontend/
     environment:
